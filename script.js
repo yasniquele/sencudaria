@@ -201,18 +201,40 @@ function criarTelaMissao() {
     telaMissao.className = "tela";
 
     telaMissao.innerHTML = `
-       
+        <div class="ampulheta" aria-hidden="true">🛡️</div>
+        <p class="etiqueta">BRIEFING DA MISSÃO</p>
+        <h2>Defenda a verdade</h2>
+        <p class="descricao">
+            Você será responsável por investigar informações suspeitas,
+            identificar fontes confiáveis e impedir que notícias falsas
+            sejam compartilhadas.
+        </p>
+        <button id="botao-comecar-missao" class="botao botao-principal">
+            <span>▶</span> COMEÇAR DESAFIO
+        </button>
+        <button id="botao-cancelar-missao" class="botao botao-secundario">
+            VOLTAR AO INÍCIO
         </button>
     `;
 
     telaInicial.parentNode.insertBefore(telaMissao, telaInicial.nextSibling);
 
-    
-
-    telaMissao.querySelector("#botao-cancelar-missao")
-        .addEventListener("click", () => mostrarTela(telaInicial));
+    configurarBotoesTelaMissao(telaMissao);
 
     return telaMissao;
+}
+
+function configurarBotoesTelaMissao(telaMissao) {
+    const botaoComecar = telaMissao.querySelector("#botao-comecar-missao");
+    const botaoCancelar = telaMissao.querySelector("#botao-cancelar-missao");
+
+    if (botaoComecar) { 
+        botaoComecar.addEventListener("click", iniciarJogo);
+    }
+
+    if (botaoCancelar) {
+        botaoCancelar.addEventListener("click", () => mostrarTela(telaInicial));
+    }
 }
 
 function configurarHistoriaRecolhivel() {
@@ -227,24 +249,19 @@ function configurarHistoriaRecolhivel() {
 
         <div class="texto-historia">
             <p>
-                Estamos no ano de 2189. Uma falha misteriosa
-                desestabilizou a linha temporal.
+               
+            </p> Estamos no ano de 2015. Uma onda de fake news começou a se espalhar pela internet e pelas redes sociais. Milhares de pessoas estão sendo enganadas por informações falsas. Sua missão é identificar as notícias verdadeiras, combater a desinformação e ajudar a proteger a sociedade. Cada resposta correta impede que uma fake news continue se espalhando. Boa sorte!
             </p>
 
             <p>
-                Acontecimentos históricos estão desaparecendo,
-                e o futuro tornou-se imprevisível.
+                
             </p>
 
             <p>
-                Você foi convocado para pilotar a Cronos, uma máquina
-                experimental capaz de atravessar épocas. Sua missão é
-                recuperar os fragmentos temporais e restaurar o equilíbrio
-                entre passado, presente e futuro.
-            </p>
+               
 
             <p class="frase-historia">
-                O passado guarda as respostas. O futuro depende de você.
+               
             </p>
         </div>
     `;
@@ -519,7 +536,7 @@ function selecionarResposta(alternativaEscolhida, botaoEscolhido) {
             ? "RESTAURAR A LINHA TEMPORAL →"
             : alternativaEscolhida.correta
                 ? "INICIAR PRÓXIMO SALTO →"
-                : "TENTAR RECUPERAR A ROTA →";
+                : "BUSQUE MAIS INFORMAÇÕES →";
 }
 
 function escolherProximoDestino(indiceAtual) {
@@ -616,6 +633,8 @@ document.querySelector("#botao-iniciar")
     .addEventListener("click", () => {
         mostrarTela(criarTelaMissao());
     });
+
+configurarBotoesTelaMissao(criarTelaMissao());
 
 document.querySelector("#botao-como-jogar")
     .addEventListener("click", () => mostrarTela(telaInstrucoes));

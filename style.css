@@ -1,10 +1,11 @@
 
 
 :root {
-    --azul-escuro: #080D1B;
-    --azul: #176B87;
-    --ciano: #5CE1E6;
-    --dourado: #FFC857;
+        --cor-fundo: #3e5c76;
+    --cor-principal: #f0ebd8 ;
+    --cor-secundaria: #6c757d; 
+    --cor-destaque: #748cab;
+    --cor-texto: #0d1321;
     --branco: #F4F1E8;
     --painel: rgba(8, 18, 37, 0.92);
 }
