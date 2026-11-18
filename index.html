@@ -1,109 +1,196 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#061a2b">
-    <title>De Volta ao Futuro</title>
+
+    <title>Combate às Fake News</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <main class="caixa-principal">
 
-        <section id="tela-inicial" class="tela ativa">
-            <div class="ampulheta" aria-hidden="true">⌛</div>
+<main class="caixa-principal">
 
-            <p class="subtitulo">UMA AVENTURA ATRAVÉS DAS ERAS</p>
-            <h1>DE VOLTA AO<br><span>FUTURO</span></h1>
+    <!-- TELA INICIAL -->
+    <section id="tela-inicial" class="tela ativa">
 
-            <div class="ornamento">✦ ━━━━━━━━━ ✦</div>
-            <p class="descricao">
-                O tempo está em suas mãos. Prepare-se para explorar
-                diferentes épocas e descobrir os segredos da história.
-            </p>
+        <div class="ampulheta" aria-hidden="true">🛡️</div>
 
-            <button id="botao-iniciar" class="botao botao-principal">
-                <span>▶</span> INICIAR VIAGEM
+        <p class="subtitulo">INFORMAÇÃO OU DESINFORMAÇÃO?</p>
+
+        <h1>
+            COMBATE ÀS<br>
+            <span>FAKE NEWS</span>
+        </h1>
+
+        <div class="ornamento">✦ ━━━━━━━━━ ✦</div>
+
+        <p class="descricao">
+            A verdade está em suas mãos!
+            Prepare-se para investigar notícias,
+            descobrir mentiras e combater a desinformação
+            na internet.
+        </p>
+
+        <button id="botao-iniciar" class="botao botao-principal">
+            <span>▶</span> INICIAR MISSÃO
+        </button>
+
+        <button id="botao-como-jogar" class="botao botao-secundario">
+            ◇ COMO JOGAR
+        </button>
+
+    </section>
+
+
+    <!-- TELA DE INSTRUÇÕES -->
+    <section id="tela-instrucoes" class="tela">
+
+        <p class="etiqueta">MANUAL DO INVESTIGADOR</p>
+
+        <h2>Como jogar?</h2>
+
+        <p class="texto-instrucao">
+            Prepare-se para uma missão contra as notícias falsas!
+        </p>
+
+        <ul class="instrucoes">
+            <li>Leia atentamente cada situação apresentada.</li>
+
+            <li>Escolha uma das três alternativas disponíveis.</li>
+
+            <li>Se acertar, avance para a próxima pergunta.</li>
+
+            <li>Se errar, você voltará duas perguntas.</li>
+
+            <li>Leia as explicações para aprender a identificar Fake News.</li>
+
+            <li>Acumule pontos e torne-se um defensor da verdade!</li>
+        </ul>
+
+        <button id="botao-voltar" class="botao botao-principal">
+            VOLTAR AO INÍCIO
+        </button>
+
+    </section>
+
+
+    <!-- TELA DO JOGO -->
+    <section id="tela-jogo" class="tela">
+
+        <header class="cabecalho-jogo">
+
+            <span class="marca">🛡️ DEFENSORES DA VERDADE</span>
+
+            <span id="contador">DESAFIO 01</span>
+
+        </header>
+
+
+        <!-- BARRA DE PROGRESSO -->
+        <div class="progresso">
+            <div id="barra-progresso"></div>
+        </div>
+
+
+        <p id="epoca" class="etiqueta">
+            MISSÃO DE INVESTIGAÇÃO
+        </p>
+
+        <h2 id="titulo-epoca">
+            O alerta suspeito
+        </h2>
+
+        <p id="numero-pergunta" class="numero-pergunta">
+            PERGUNTA 1 DE 15
+        </p>
+
+
+        <!-- PERGUNTA -->
+        <div class="caixa-perguntas"></div>
+
+
+        <!-- ALTERNATIVAS -->
+        <div class="caixa-alternativas"></div>
+
+
+        <!-- FEEDBACK -->
+        <div
+            id="caixa-feedback"
+            class="caixa-feedback"
+            aria-live="polite"
+            hidden
+        >
+
+            <h3 id="titulo-feedback"></h3>
+
+            <p id="texto-feedback"></p>
+
+            <button
+                id="botao-continuar"
+                class="botao botao-principal"
+            >
+                PRÓXIMA PERGUNTA →
             </button>
 
-            <button id="botao-como-jogar" class="botao botao-secundario">
-                ◇ COMO JOGAR
-            </button>
-        </section>
+        </div>
 
-        <section id="tela-instrucoes" class="tela">
-            <p class="etiqueta">MANUAL DO VIAJANTE</p>
-            <h2>Como jogar?</h2>
+    </section>
 
-            <p class="texto-instrucao">
-                Prepare-se para uma jornada através do tempo!
-            </p>
 
-            <ul class="instrucoes">
-                <li>Explore diferentes épocas históricas.</li>
-                <li>Responda às perguntas para avançar na jornada.</li>
-                <li>Leia as explicações e aprenda algo novo.</li>
-                <li>Acumule pontos acertando as respostas.</li>
-            </ul>
+    <!-- TELA FINAL -->
+    <section id="tela-final" class="tela">
 
-            <button id="botao-voltar" class="botao botao-principal">
-                VOLTAR AO INÍCIO
-            </button>
-        </section>
+        <div class="ampulheta" aria-hidden="true">🏆</div>
 
-        <section id="tela-jogo" class="tela">
-            <header class="cabecalho-jogo">
-                <span class="marca">⌛ DE VOLTA AO FUTURO</span>
-                <span id="contador">VIAGEM 01</span>
-            </header>
+        <p class="etiqueta">FIM DA MISSÃO</p>
 
-            <div class="progresso">
-                <div id="barra-progresso"></div>
-            </div>
+        <h2 id="titulo-final">
+            Missão concluída!
+        </h2>
 
-            <p id="epoca" class="etiqueta">PRÓXIMA PARADA</p>
-            <h2 id="titulo-epoca">O início da jornada</h2>
-            <p id="numero-pergunta" class="numero-pergunta"></p>
+        <p id="mensagem-final"></p>
 
-            <div class="caixa-perguntas"></div>
-            <div class="caixa-alternativas"></div>
 
-            <div id="caixa-feedback" class="caixa-feedback" aria-live="polite" hidden>
-                <h3 id="titulo-feedback"></h3>
-                <p id="texto-feedback"></p>
-                <button id="botao-continuar" class="botao botao-principal">
-                    CONTINUAR VIAGEM →
-                </button>
-            </div>
-        </section>
+        <!-- PLACAR -->
+        <div class="placar">
 
-        <section id="tela-final" class="tela">
-            <div class="ampulheta" aria-hidden="true">⌛</div>
-            <p class="etiqueta">FIM DA JORNADA</p>
-            <h2 id="titulo-final">Viagem concluída!</h2>
-            <p id="mensagem-final"></p>
+            <span>SUA PONTUAÇÃO</span>
 
-            <div class="placar">
-                <span>SUA PONTUAÇÃO</span>
-                <strong id="pontuacao-final">0/10</strong>
-            </div>
+            <strong id="pontuacao-final">
+                0/15
+            </strong>
 
-            <button id="botao-reiniciar" class="botao botao-principal">
-                ↻ VIAJAR NOVAMENTE
-            </button>
+        </div>
 
-            <button id="botao-inicio-final" class="botao botao-secundario">
-                VOLTAR AO INÍCIO
-            </button>
-        </section>
 
-        <footer class="rodape">
-            <span>UMA VIAGEM ATRAVÉS DO TEMPO</span>
-            <span>✦</span>
-        </footer>
+        <button id="botao-reiniciar" class="botao botao-principal">
+            ↻ JOGAR NOVAMENTE
+        </button>
 
-    </main>
+        <button id="botao-inicio-final" class="botao botao-secundario">
+            VOLTAR AO INÍCIO
+        </button>
 
-    <script src="script.js"></script>
+    </section>
+
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+
+        <span>COMBATE À DESINFORMAÇÃO</span>
+
+        <span>✦</span>
+
+    </footer>
+
+</main>
+
+<script src="script.js"></script>
+
 </body>
 </html>

@@ -17,351 +17,160 @@ const tituloFeedback = document.querySelector("#titulo-feedback");
 const textoFeedback = document.querySelector("#texto-feedback");
 const botaoContinuar = document.querySelector("#botao-continuar");
 
-const TOTAL = 20;
+const TOTAL = 15;
 
 const perguntas = [
-    {
-        epoca: "PRESENTE — 2026",
-        titulo: "A falha temporal",
-        enunciado: "Você está no presente quando recebe um alerta da máquina Cronos. Qual é a principal função de uma fonte histórica?",
-        alternativas: [
-            {
-                texto: "Ajudar a compreender o passado",
-                correta: true,
-                explicacao: "Documentos, objetos, imagens e relatos ajudam os historiadores a investigar o passado."
-            },
-            {
-                texto: "Prever exatamente tudo o que acontecerá",
-                correta: false,
-                explicacao: "Fontes históricas ajudam a compreender o passado, mas não permitem prever exatamente o futuro."
-            }
-        ]
-    },
-    {
-        epoca: "FUTURO — 2150",
-        titulo: "O alerta das máquinas",
-        enunciado: "Nesse futuro fictício, sistemas automatizados controlam boa parte das cidades. Qual é um risco real de usá-los sem supervisão adequada?",
-        alternativas: [
-            {
-                texto: "Decisões injustas e falhas difíceis de detectar",
-                correta: true,
-                explicacao: "Sistemas automatizados podem reproduzir vieses ou cometer erros. Supervisão humana é importante."
-            },
-            {
-                texto: "Todas as máquinas deixam de precisar de energia",
-                correta: false,
-                explicacao: "Máquinas continuam dependendo de energia e manutenção."
-            }
-        ]
-    },
-    {
-        epoca: "BRASIL — 1964",
-        titulo: "Um período de tensão",
-        enunciado: "Você chega ao início da ditadura militar brasileira. Em que ano ocorreu o golpe que instaurou o regime?",
-        alternativas: [
-            {
-                texto: "1964",
-                correta: true,
-                explicacao: "O golpe de 1964 depôs o presidente João Goulart e deu início à ditadura militar brasileira."
-            },
-            {
-                texto: "1988",
-                correta: false,
-                explicacao: "Em 1988 foi promulgada a Constituição brasileira atual. O golpe ocorreu em 1964."
-            }
-        ]
-    },
-    {
-        epoca: "GRÉCIA ANTIGA",
-        titulo: "O nascimento de uma ideia",
-        enunciado: "Você atravessa um portal e chega a Atenas. Qual cidade é especialmente associada ao desenvolvimento da democracia antiga?",
-        alternativas: [
-            {
-                texto: "Atenas",
-                correta: true,
-                explicacao: "Atenas desenvolveu uma forma de democracia direta, mas muitos habitantes não tinham direitos políticos."
-            },
-            {
-                texto: "Esparta",
-                correta: false,
-                explicacao: "Esparta tinha uma organização política diferente, com forte influência militar."
-            }
-        ]
-    },
-    {
-        epoca: "REVOLUÇÃO INDUSTRIAL",
-        titulo: "O poder das máquinas",
-        enunciado: "A Cronos salta para a Inglaterra do século XVIII. Qual transformação marcou a Revolução Industrial?",
-        alternativas: [
-            {
-                texto: "A expansão da produção mecanizada",
-                correta: true,
-                explicacao: "A mecanização transformou a produção, as relações de trabalho e o crescimento das cidades."
-            },
-            {
-                texto: "O desaparecimento de todas as cidades",
-                correta: false,
-                explicacao: "A industrialização contribuiu para o crescimento de muitas cidades."
-            }
-        ]
-    },
-    {
-        epoca: "FUTURO — 2150",
-        titulo: "O código perdido",
-        enunciado: "Uma máquina bloqueia seu caminho. Qual medida ajuda a tornar sistemas automatizados mais responsáveis?",
-        alternativas: [
-            {
-                texto: "Testes, supervisão e possibilidade de contestar decisões",
-                correta: true,
-                explicacao: "Auditorias e supervisão ajudam a identificar erros e responsabilizar os envolvidos."
-            },
-            {
-                texto: "Permitir qualquer decisão sem controle",
-                correta: false,
-                explicacao: "A ausência de supervisão pode ampliar riscos e dificultar a correção de decisões prejudiciais."
-            }
-        ]
-    },
-    {
-        epoca: "EGITO ANTIGO",
-        titulo: "O enigma das pirâmides",
-        enunciado: "Você volta milhares de anos. Qual era uma das principais funções das grandes pirâmides egípcias?",
-        alternativas: [
-            {
-                texto: "Servir como túmulos reais",
-                correta: true,
-                explicacao: "As pirâmides estavam ligadas às práticas funerárias dos faraós e às crenças sobre a vida após a morte."
-            },
-            {
-                texto: "Servir como fábricas modernas",
-                correta: false,
-                explicacao: "As pirâmides tinham funções funerárias e religiosas, não industriais."
-            }
-        ]
-    },
-    {
-        epoca: "BRASIL — ANOS 1970",
-        titulo: "A voz sob censura",
-        enunciado: "Durante a ditadura militar, qual prática restringia a liberdade de expressão?",
-        alternativas: [
-            {
-                texto: "A censura a publicações, músicas e manifestações",
-                correta: true,
-                explicacao: "A censura atingiu artistas, jornalistas, intelectuais e opositores durante a ditadura."
-            },
-            {
-                texto: "A liberdade irrestrita de criticar o governo",
-                correta: false,
-                explicacao: "A liberdade de expressão foi severamente restringida durante o regime."
-            }
-        ]
-    },
-    {
-        epoca: "PRÉ-HISTÓRIA",
-        titulo: "Muito antes da escrita",
-        enunciado: "Como os pesquisadores estudam sociedades pré-históricas?",
-        alternativas: [
-            {
-                texto: "Analisando fósseis, ferramentas e pinturas rupestres",
-                correta: true,
-                explicacao: "Vestígios materiais ajudam a investigar a vida humana antes do desenvolvimento da escrita."
-            },
-            {
-                texto: "Usando exclusivamente jornais da época",
-                correta: false,
-                explicacao: "Não existiam jornais na Pré-História. Pesquisadores analisam vestígios arqueológicos."
-            }
-        ]
-    },
-    {
-        epoca: "PRESENTE — 2026",
-        titulo: "O rastro da história",
-        enunciado: "Você volta ao presente e precisa distinguir uma informação confiável de um boato. Qual atitude é mais adequada?",
-        alternativas: [
-            {
-                texto: "Verificar a fonte e comparar informações",
-                correta: true,
-                explicacao: "Comparar fontes confiáveis ajuda a identificar informações falsas ou fora de contexto."
-            },
-            {
-                texto: "Compartilhar a primeira mensagem que receber",
-                correta: false,
-                explicacao: "Uma mensagem pode estar errada ou manipulada. Verifique antes de compartilhar."
-            }
-        ]
-    },
-    {
-        epoca: "ROMA ANTIGA",
-        titulo: "O império e suas leis",
-        enunciado: "Você chega à Roma Antiga. Qual língua teve papel central na administração romana do Ocidente?",
-        alternativas: [
-            {
-                texto: "Latim",
-                correta: true,
-                explicacao: "O latim influenciou várias línguas, entre elas o português, o espanhol, o francês e o italiano."
-            },
-            {
-                texto: "Português",
-                correta: false,
-                explicacao: "O português se desenvolveu muitos séculos depois, a partir da evolução do latim falado."
-            }
-        ]
-    },
-    {
-        epoca: "FUTURO — 2150",
-        titulo: "A cidade autônoma",
-        enunciado: "Uma cidade futurista precisa decidir como usar robôs no trabalho. Qual abordagem considera melhor os impactos sociais?",
-        alternativas: [
-            {
-                texto: "Avaliar riscos, proteger direitos e preparar trabalhadores",
-                correta: true,
-                explicacao: "Educação, proteção social e planejamento ajudam a lidar com as mudanças causadas pela automação."
-            },
-            {
-                texto: "Ignorar os efeitos sobre a população",
-                correta: false,
-                explicacao: "Mudanças tecnológicas também têm efeitos econômicos e sociais que precisam ser considerados."
-            }
-        ]
-    },
-    {
-        epoca: "IDADE MÉDIA",
-        titulo: "Entre castelos e feudos",
-        enunciado: "Em partes da Europa medieval, qual sistema organizava relações sociais ligadas à terra e a obrigações entre grupos?",
-        alternativas: [
-            {
-                texto: "Feudalismo",
-                correta: true,
-                explicacao: "O feudalismo caracterizou partes da Europa medieval, embora as sociedades variassem entre regiões."
-            },
-            {
-                texto: "Capitalismo industrial",
-                correta: false,
-                explicacao: "O capitalismo industrial se desenvolveu muito depois, com a industrialização."
-            }
-        ]
-    },
-    {
-        epoca: "BRASIL — ANOS 1980",
-        titulo: "O caminho da democracia",
-        enunciado: "A Cronos chega ao período de redemocratização. Em que ano foi promulgada a atual Constituição brasileira?",
-        alternativas: [
-            {
-                texto: "1988",
-                correta: true,
-                explicacao: "A Constituição de 1988 ampliou direitos e se tornou um marco da redemocratização brasileira."
-            },
-            {
-                texto: "1964",
-                correta: false,
-                explicacao: "1964 marca o golpe que instaurou a ditadura militar. A Constituição atual foi promulgada em 1988."
-            }
-        ]
-    },
-    {
-        epoca: "RENASCIMENTO",
-        titulo: "A redescoberta do conhecimento",
-        enunciado: "Você chega à Europa do Renascimento. Qual característica marcou esse movimento cultural?",
-        alternativas: [
-            {
-                texto: "Valorização das artes, da ciência e da cultura clássica",
-                correta: true,
-                explicacao: "O Renascimento valorizou referências greco-romanas e impulsionou transformações artísticas e intelectuais."
-            },
-            {
-                texto: "Abandono completo da produção artística",
-                correta: false,
-                explicacao: "O período ficou conhecido justamente por importantes inovações nas artes e no pensamento."
-            }
-        ]
-    },
-    {
-        epoca: "ERA DAS NAVEGAÇÕES",
-        titulo: "Além dos horizontes",
-        enunciado: "Nos séculos XV e XVI, qual era um dos objetivos das navegações europeias?",
-        alternativas: [
-            {
-                texto: "Buscar rotas comerciais e expandir territórios",
-                correta: true,
-                explicacao: "Interesses comerciais, políticos e religiosos contribuíram para as navegações, ligadas também à colonização."
-            },
-            {
-                texto: "Construir ferrovias entre continentes",
-                correta: false,
-                explicacao: "As ferrovias surgiram muito depois e não eram um objetivo das navegações desse período."
-            }
-        ]
-    },
-    {
-        epoca: "SÉCULO XX",
-        titulo: "Uma mensagem pelo tempo",
-        enunciado: "Qual tecnologia transformou profundamente a comunicação global a partir do final do século XX?",
-        alternativas: [
-            {
-                texto: "A internet",
-                correta: true,
-                explicacao: "A expansão da internet mudou a comunicação, o acesso à informação e as relações sociais."
-            },
-            {
-                texto: "A máquina a vapor",
-                correta: false,
-                explicacao: "A máquina a vapor foi fundamental para a industrialização, mas surgiu muito antes da internet."
-            }
-        ]
-    },
-    {
-        epoca: "FUTURO — 2150",
-        titulo: "O dilema final",
-        enunciado: "As máquinas oferecem uma solução rápida para um problema, mas os dados podem estar incompletos. O que você faz?",
-        alternativas: [
-            {
-                texto: "Verifico as evidências e avalio as consequências antes de decidir",
-                correta: true,
-                explicacao: "Decisões responsáveis exigem avaliar evidências, limitações e possíveis consequências."
-            },
-            {
-                texto: "Aceito a resposta automaticamente porque veio de uma máquina",
-                correta: false,
-                explicacao: "Uma resposta automatizada também pode estar errada. A tecnologia não elimina a necessidade de pensamento crítico."
-            }
-        ]
-    },
-    {
-        epoca: "PRESENTE — 2026",
-        titulo: "O ponto de retorno",
-        enunciado: "Você encontra o último fragmento temporal. Por que estudar História é importante para a sociedade?",
-        alternativas: [
-            {
-                texto: "Para compreender mudanças, permanências e escolhas humanas",
-                correta: true,
-                explicacao: "A História ajuda a compreender como as sociedades se transformaram e a refletir sobre problemas atuais."
-            },
-            {
-                texto: "Porque o passado determina inevitavelmente tudo o que virá",
-                correta: false,
-                explicacao: "O passado influencia o presente, mas as decisões humanas também contribuem para construir o futuro."
-            }
-        ]
-    },
-    {
-        epoca: "FUTURO — 2189",
-        titulo: "O destino da linha temporal",
-        enunciado: "Você finalmente chega ao ano em que a missão começou. Qual é a melhor forma de impedir que os mesmos erros históricos se repitam?",
-        alternativas: [
-            {
-                texto: "Aprender com o passado, avaliar evidências e agir com responsabilidade",
-                correta: true,
-                explicacao: "Conhecimento histórico, pensamento crítico e responsabilidade ajudam a tomar decisões melhores."
-            },
-            {
-                texto: "Apagar todos os registros do passado",
-                correta: false,
-                explicacao: "Apagar a memória histórica não resolve os problemas. Compreender o passado permite aprender com experiências anteriores."
-            }
-        ]
-    }
+{
+    epoca: "COMBATE ÀS FAKE NEWS",
+    titulo: "Verificando informações",
+    enunciado: "Qual é a melhor forma de saber se uma notícia é verdadeira?",
+    alternativas: [
+        { texto: "Verificar a fonte da notícia.", correta: true, explicacao: "Sempre confira a fonte." },
+        { texto: "Compartilhar imediatamente.", correta: false, explicacao: "Não compartilhe antes de verificar." },
+        { texto: "Acreditar apenas no título.", correta: false, explicacao: "O título pode ser enganoso." }
+    ]
+},
+{
+    epoca: "COMBATE ÀS FAKE NEWS",
+    titulo: "Redes Sociais",
+    enunciado: "Antes de compartilhar uma notícia você deve:",
+    alternativas: [
+        { texto: "Ler a notícia inteira.", correta: true, explicacao: "Leia antes de compartilhar." },
+        { texto: "Compartilhar sem ler.", correta: false, explicacao: "Isso pode espalhar fake news." },
+        { texto: "Acreditar apenas na imagem.", correta: false, explicacao: "Imagens também podem ser falsas." }
+    ]
+},
+{
+    epoca: "COMBATE ÀS FAKE NEWS",
+    titulo: "Fontes",
+    enunciado: "Qual é uma fonte mais confiável?",
+    alternativas: [
+        { texto: "Site oficial.", correta: true, explicacao: "Sites oficiais são mais confiáveis." },
+        { texto: "Mensagem de WhatsApp.", correta: false, explicacao: "Mensagens podem ser falsas." },
+        { texto: "Corrente da internet.", correta: false, explicacao: "Correntes não garantem veracidade." }
+    ]
+},
+{
+    epoca: "COMBATE ÀS FAKE NEWS",
+    titulo: "Boatos",
+    enunciado: "O que fazer ao encontrar uma notícia duvidosa?",
+    alternativas: [
+        { texto: "Pesquisar em outras fontes.", correta: true, explicacao: "Compare diferentes fontes." },
+        { texto: "Compartilhar rapidamente.", correta: false, explicacao: "Isso espalha boatos." },
+        { texto: "Ignorar a fonte.", correta: false, explicacao: "A fonte é importante." }
+    ]
+},
+{
+    epoca: "COMBATE ÀS FAKE NEWS",
+    titulo: "Pensamento crítico",
+    enunciado: "Uma informação muito chamativa deve:",
+    alternativas: [
+        { texto: "Ser verificada.", correta: true, explicacao: "Confira antes de acreditar." },
+        { texto: "Ser compartilhada.", correta: false, explicacao: "Primeiro verifique." },
+        { texto: "Ser aceita sem dúvidas.", correta: false, explicacao: "Questione sempre." }
+    ]
+},
+{
+    epoca: "COMBATE ÀS FAKE NEWS",
+    titulo: "Internet",
+    enunciado: "Nem tudo que está na internet é:",
+    alternativas: [
+        { texto: "Verdadeiro.", correta: true, explicacao: "Nem tudo é confiável." },
+        { texto: "Falso.", correta: false, explicacao: "Existem informações verdadeiras." },
+        { texto: "Importante.", correta: false, explicacao: "Isso não responde à pergunta." }
+    ]
+},
+{
+    epoca: "COMBATE ÀS FAKE NEWS",
+    titulo: "Compartilhamento",
+    enunciado: "Quem pode espalhar fake news?",
+    alternativas: [
+        { texto: "Qualquer pessoa.", correta: true, explicacao: "Todos devem ter responsabilidade." },
+        { texto: "Somente jornalistas.", correta: false, explicacao: "Não apenas eles." },
+        { texto: "Somente políticos.", correta: false, explicacao: "Qualquer pessoa pode compartilhar." }
+    ]
+},
+{
+    epoca: "COMBATE ÀS FAKE NEWS",
+    titulo: "Imagens",
+    enunciado: "Uma imagem na internet pode:",
+    alternativas: [
+        { texto: "Ser editada.", correta: true, explicacao: "Imagens podem ser manipuladas." },
+        { texto: "Ser sempre verdadeira.", correta: false, explicacao: "Nem sempre." },
+        { texto: "Nunca ser modificada.", correta: false, explicacao: "Pode ser alterada." }
+    ]
+},
+{
+    epoca: "COMBATE ÀS FAKE NEWS",
+    titulo: "Responsabilidade",
+    enunciado: "Ao descobrir uma notícia falsa você deve:",
+    alternativas: [
+        { texto: "Não compartilhá-la.", correta: true, explicacao: "Ajude a impedir sua divulgação." },
+        { texto: "Espalhá-la.", correta: false, explicacao: "Isso aumenta a desinformação." },
+        { texto: "Guardar para depois.", correta: false, explicacao: "O correto é não divulgar." }
+    ]
+},
+{
+    epoca: "COMBATE ÀS FAKE NEWS",
+    titulo: "Verificação",
+    enunciado: "Qual atitude demonstra pensamento crítico?",
+    alternativas: [
+        { texto: "Comparar várias fontes.", correta: true, explicacao: "Sempre compare informações." },
+        { texto: "Acreditar na primeira mensagem.", correta: false, explicacao: "Pode ser falsa." },
+        { texto: "Compartilhar sem conferir.", correta: false, explicacao: "Verifique antes." }
+    ]
+},
+{
+    epoca: "COMBATE ÀS FAKE NEWS",
+    titulo: "Título",
+    enunciado: "Você deve acreditar apenas no título?",
+    alternativas: [
+        { texto: "Não.", correta: true, explicacao: "Leia toda a notícia." },
+        { texto: "Sim.", correta: false, explicacao: "O título pode enganar." },
+        { texto: "Às vezes, sem ler.", correta: false, explicacao: "Leia sempre." }
+    ]
+},
+{
+    epoca: "COMBATE ÀS FAKE NEWS",
+    titulo: "Autor",
+    enunciado: "É importante saber quem escreveu a notícia?",
+    alternativas: [
+        { texto: "Sim.", correta: true, explicacao: "Verifique o autor." },
+        { texto: "Não.", correta: false, explicacao: "A autoria é importante." },
+        { texto: "Só se for famosa.", correta: false, explicacao: "Sempre verifique." }
+    ]
+},
+{
+    epoca: "COMBATE ÀS FAKE NEWS",
+    titulo: "Sites",
+    enunciado: "Qual site inspira mais confiança?",
+    alternativas: [
+        { texto: "Um site oficial.", correta: true, explicacao: "É mais confiável." },
+        { texto: "Qualquer blog desconhecido.", correta: false, explicacao: "Pode conter informações falsas." },
+        { texto: "Uma corrente de mensagens.", correta: false, explicacao: "Não é uma fonte confiável." }
+    ]
+},
+{
+    epoca: "COMBATE ÀS FAKE NEWS",
+    titulo: "Checagem",
+    enunciado: "O que significa checar uma informação?",
+    alternativas: [
+        { texto: "Confirmar se ela é verdadeira.", correta: true, explicacao: "Isso evita fake news." },
+        { texto: "Compartilhar.", correta: false, explicacao: "Primeiro confirme." },
+        { texto: "Ignorar.", correta: false, explicacao: "Verifique a informação." }
+    ]
+},
+{
+    epoca: "COMBATE ÀS FAKE NEWS",
+    titulo: "Missão concluída",
+    enunciado: "Qual é a melhor maneira de combater as fake news?",
+    alternativas: [
+        { texto: "Verificar antes de compartilhar.", correta: true, explicacao: "Essa é a melhor atitude." },
+        { texto: "Compartilhar rapidamente.", correta: false, explicacao: "Isso espalha notícias falsas." },
+        { texto: "Acreditar em tudo.", correta: false, explicacao: "Questione e confirme as informações." }
+    ]
+}
 ];
-
 let atual = 0;
 let pontuacao = 0;
 let respondeu = false;
@@ -392,42 +201,13 @@ function criarTelaMissao() {
     telaMissao.className = "tela";
 
     telaMissao.innerHTML = `
-        <p class="etiqueta">ARQUIVO TEMPORAL Nº 001</p>
-        <div class="ampulheta" aria-hidden="true">⌛</div>
-        <h2>Uma missão além do tempo</h2>
-
-        <p class="descricao">
-            Ano 2189. Uma falha misteriosa desestabilizou a linha temporal.
-            Acontecimentos históricos estão desaparecendo e o futuro tornou-se
-            imprevisível.
-        </p>
-
-        <p class="descricao">
-            Você foi convocado para pilotar a Cronos, uma máquina experimental
-            capaz de atravessar épocas. Sua missão é recuperar os fragmentos
-            temporais e restaurar o equilíbrio entre passado, presente e futuro.
-        </p>
-
-        <p class="descricao">
-            Mas cuidado: cada resposta errada pode lançar você ainda mais longe
-            no tempo. O futuro depende do que você descobrir pelo caminho.
-        </p>
-
-        <h3>O passado guarda as respostas. O futuro depende de você.</h3>
-
-        <button id="botao-aceitar-missao" class="botao botao-principal">
-            ACEITAR MISSÃO →
-        </button>
-
-        <button id="botao-cancelar-missao" class="botao botao-secundario">
-            VOLTAR AO MENU
+       
         </button>
     `;
 
     telaInicial.parentNode.insertBefore(telaMissao, telaInicial.nextSibling);
 
-    telaMissao.querySelector("#botao-aceitar-missao")
-        .addEventListener("click", iniciarJogo);
+    
 
     telaMissao.querySelector("#botao-cancelar-missao")
         .addEventListener("click", () => mostrarTela(telaInicial));
